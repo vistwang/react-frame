@@ -1,6 +1,6 @@
 import './App.css';
 
-import { DatePicker } from 'antd';
+// import { DatePicker } from 'antd';
 import * as React from 'react';
 
 import logo from './logo.svg';
@@ -20,7 +20,7 @@ class App extends React.Component {
         </p>
         <Demo />
         <AppRouter />
-        <DatePicker onChange={this.datePickerOnChange} />
+        {/* <DatePicker onChange={this.datePickerOnChange} /> */}
       </div>
     );
   }

@@ -6,7 +6,7 @@ function Index() {
   return (
       <div>
         <h2>Home</h2>
-        <Xdd me="10" you="10"/>
+        <Xdd me='10' you='10'/>
       </div>
   );
 }

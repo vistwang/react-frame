@@ -1,12 +1,44 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
+import LocalePrivider from '../../components/context';
+import LocaleSon from '../../components/contextson';
+import Medemo from '../../components/demo';
+
+export const enString: IMyLang = {
+    submit: 'Submit',
+    cancel: 'Cancel'
+};
+
+export const cnString: IMyLang = {
+    submit: '提交',
+    cancel: '取消'
+};
+
+export const LocaleContext = React.createContext(cnString);
+
+export interface IMyLang {
+    submit: string,
+    cancel: string
+}
+
 function Demo() {
+    // 函数子组件
   return (
     <Router>
       <div>
+        <Medemo>
+            {(name: React.ReactNode) => {
+                return <h1>{name}</h1>
+            }}
+        </Medemo>
+        <LocalePrivider>
+            <div>
+                <br/>
+                <LocaleSon />
+            </div>
+        </LocalePrivider>
         <Header />
-
         <Route exact={true} path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/topics' component={Topics} />
