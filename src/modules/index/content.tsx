@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import LocalePrivider from '../../components/context';
 import LocaleSon from '../../components/contextson';
 import Medemo from '../../components/demo';
+import { run } from '../../components/reduxDemo';
 
 export const enString: IMyLang = {
     submit: 'Submit',
@@ -24,6 +25,7 @@ export interface IMyLang {
 
 function Demo() {
     // 函数子组件
+    run();
   return (
     <Router>
       <div>
