@@ -3,6 +3,8 @@ import './App.css';
 // import { DatePicker } from 'antd';
 import * as React from 'react';
 
+import { CounterCon } from './container/CounterCon';
+import { TodoCon } from './container/TodoCon';
 import logo from './logo.svg';
 import Demo from './modules/index/content';
 import AppRouter from './modules/index/header';
@@ -19,6 +21,8 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
         <Demo />
+        <CounterCon />
+        <TodoCon />
         <AppRouter />
         {/* <DatePicker onChange={this.datePickerOnChange} /> */}
       </div>

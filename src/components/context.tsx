@@ -26,6 +26,7 @@ export default class LocalePrivider extends React.Component<{}, IMyComponentStat
         return (
 
             <LocaleContext.Provider value={this.state.lang}>
+                <h3>Context 实现切换语言</h3>
                 <button onClick={this.toggleLocale}>切换语言</button>
                 {this.props.children}
             </LocaleContext.Provider>

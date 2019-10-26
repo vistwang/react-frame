@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 import LocalePrivider from '../../components/context';
 import LocaleSon from '../../components/contextson';
 import Medemo from '../../components/demo';
-import { run } from '../../components/reduxDemo';
+import { ConnectComponent, store } from '../../components/reduxDemo';
 
 export const enString: IMyLang = {
     submit: 'Submit',
@@ -25,7 +26,6 @@ export interface IMyLang {
 
 function Demo() {
     // 函数子组件
-    run();
   return (
     <Router>
       <div>
@@ -34,6 +34,9 @@ function Demo() {
                 return <h1>{name}</h1>
             }}
         </Medemo>
+        <Provider store={store}>
+            <ConnectComponent />
+        </Provider>
         <LocalePrivider>
             <div>
                 <br/>

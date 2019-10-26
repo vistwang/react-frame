@@ -1,24 +1,26 @@
+import * as React from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators, combineReducers, createStore } from 'redux';
 
 const INCREMENT = 'add';
 const DECREMENT = 'reduce';
 interface ModifyAction{
     type: string;
-    count?: number
+    num?: number
 };
  
 const InitState = {
-    count: 0
+    num: 0
 };
-function reducer(state = InitState, action: ModifyAction) {
+function count(state = InitState, action: ModifyAction) {
     switch (action.type) {
         case INCREMENT:
         return Object.assign({}, state, {
-            count: state.count + 1
+            num: state.num + 1
         })
         case DECREMENT:
         return Object.assign({}, state, {
-            count: state.count - 1
+            num: state.num - 1
         })
         default:
         return state
@@ -30,37 +32,64 @@ function todo(state = {}) {
 }
 
 // action creator
-
-function del() {
+const del = () => {
     return {
         type: 'reduce'
     }
 }
 
-function add() {
+const add = () => {
     return {
         type: 'add'
     }
 };
 
-export function run() {
-    // combineReducers 绑定多个reducer
-    const store = createStore(
-        combineReducers({
-            reducer,
-            todo
-        })
-    );
-    store.subscribe(() => console.log(store.getState()));
+export const store = createStore(
+    combineReducers({
+        count,
+        todo
+    })
+);
+store.subscribe(() => console.log(store.getState()));
 
-    // bindActionCreators 使用
-    const delfunc = bindActionCreators(del, store.dispatch);
-    const addfunc = bindActionCreators(add, store.dispatch);
+// bindActionCreators 使用
 
-    // store.dispatch(add());
-    // store.dispatch(add());
-    // store.dispatch(del()); 
-    addfunc();
-    addfunc();
-    delfunc();
+// del = bindActionCreators(del, store.dispatch);
+// add = bindActionCreators(add, store.dispatch);
+
+function myBindActionCreators() {
+    return bindActionCreators({del, add}, store.dispatch)
+};
+
+function mapStateToProp(state: any) {
+    return {
+        num: state.count.num
+    }
 }
+
+interface MyProps {
+    del: () => object;
+    add: () => object;
+    num: number;
+}
+
+class Calculator extends React.Component<MyProps, {}>{
+    constructor(prop: any) {
+        super(prop)
+    }
+
+    public render() {
+        // tslint:disable-next-line:no-shadowed-variable
+        const {del, add, num} = this.props;
+        return (
+            <div>
+                <h3>redux 实现计数</h3>
+                <button onClick={del}>-</button>
+                <span>{num}</span>
+                <button onClick={add}>+</button>
+            </div>
+        )
+    }
+}
+
+export const ConnectComponent = connect(mapStateToProp, myBindActionCreators)(Calculator);
