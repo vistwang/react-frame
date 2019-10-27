@@ -6,6 +6,6 @@ export interface StoreState {
 };
 
 export const initStoreState: StoreState = {
-    count: 0,
-    todo: []
+    count: 10,
+    todo: ['1','2']
 }
