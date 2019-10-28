@@ -42,4 +42,9 @@ class App extends React.Component {
 // public包含了静态资源如HTML页面或图片。除了index.html文件外，其它的文件都可以删除。
 // src包含了TypeScript和CSS源码。index.tsx是强制使用的入口文件。
 
+// react 脚手架
+// create-react-app
+// rekit
+// codesandbox.io
+
 export default App;

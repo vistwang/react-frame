@@ -24,7 +24,7 @@ export function count(state = 0, action: EnthusiasmAction) {
 export function todo(state = [], action: TodoAction) {
   switch (action.type) {
     case INCREMENT_TODO:
-        return [...state, action.key];
+        return [action.key, ...state];
     //   return Object.assign({}, state, {todo: [...state.todo, action.key]});
     case DECREMENT_TODO:
         return [...state.filter((_, index) => index !== action.index)];
