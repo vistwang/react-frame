@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
+import AsncAction from '../../components/AsyncAction';
 import LocalePrivider from '../../components/context';
 import LocaleSon from '../../components/contextson';
 import Medemo from '../../components/demo';
@@ -43,6 +44,7 @@ function Demo() {
                 <LocaleSon />
             </div>
         </LocalePrivider>
+        <AsncAction />
         <Header />
         <Route exact={true} path='/' component={Home} />
         <Route path='/about' component={About} />

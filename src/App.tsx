@@ -4,6 +4,7 @@ import './App.css';
 import * as React from 'react';
 
 import { CounterCon } from './container/CounterCon';
+import { RandomCon } from './container/RandomCon';
 import { TodoCon } from './container/TodoCon';
 import logo from './logo.svg';
 import Demo from './modules/index/content';
@@ -23,6 +24,7 @@ class App extends React.Component {
         <Demo />
         <CounterCon />
         <TodoCon />
+        <RandomCon />
         <AppRouter />
         {/* <DatePicker onChange={this.datePickerOnChange} /> */}
       </div>
