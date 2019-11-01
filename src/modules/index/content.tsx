@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import AsncAction from '../../components/AsyncAction';
-import LocalePrivider from '../../components/context';
-import LocaleSon from '../../components/contextson';
-import Medemo from '../../components/demo';
+import AsyncAction from '../../components/AsyncAction';
+import LocalePrivider from '../../components/LocalePrivider';
+import LocaleSon from '../../components/LocaleSon';
+import Medemo from '../../components/Medemo';
 import { ConnectComponent, store } from '../../components/reduxDemo';
 
 // 三种路由
@@ -59,7 +59,7 @@ function Demo() {
                 <LocaleSon />
             </div>
         </LocalePrivider>
-        <AsncAction />
+        <AsyncAction />
         <Header />
         <Route exact={true} path='/' component={Home} />
         <Route path='/about' component={About} />

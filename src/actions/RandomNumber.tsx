@@ -18,6 +18,7 @@ export function randAction(): Myaction{
 
 export function random(state = 0, action: Myaction){
     if(action.type === RENDER) {
+        // tslint:disable-next-line:no-parameter-reassignment
         state = action.value;
     }
 
