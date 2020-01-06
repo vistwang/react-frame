@@ -7,6 +7,7 @@ import LocalePrivider from '../../components/LocalePrivider';
 import LocaleSon from '../../components/LocaleSon';
 import Medemo from '../../components/Medemo';
 import { ConnectComponent, store } from '../../components/reduxDemo';
+import  Demohook  from '../../components/hook';
 
 // 三种路由
 // 1 url 路由
@@ -42,9 +43,12 @@ export interface IMyLang {
 
 function Demo() {
     // 函数子组件
+    const [hobby , setHobby] = React.useState(['吃', '喝', '玩']);
   return (
     <Router>
       <div>
+      <Demohook hobby={hobby}/>
+      <button onClick={() => {hobby.push('泡'); setHobby([...[], ...hobby])}}>改变爱好</button>
         <Medemo>
             {(name: React.ReactNode) => {
                 return <h1>{name}</h1>
